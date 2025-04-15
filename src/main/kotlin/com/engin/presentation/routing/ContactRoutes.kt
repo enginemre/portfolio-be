@@ -12,36 +12,38 @@ import io.ktor.server.routing.*
 import org.koin.ktor.ext.inject
 
 
-fun Route.contactRoutes() {
+fun Application.contactRoutes() {
     val sendContactMessageUseCase by inject<SendContactMessageUseCase>()
-    post("/api/contact") {
-        try {
-            val request = call.receive<ContactRequest>()
-            val contact = Contact(
-                name = request.name,
-                surname = request.surname,
-                message = request.message
-            )
+    routing {
+        post("/api/contact") {
+            try {
+                val request = call.receive<ContactRequest>()
+                val contact = Contact(
+                    name = request.name,
+                    surname = request.surname,
+                    message = request.message
+                )
 
-            sendContactMessageUseCase(contact).fold(
-                onSuccess = {
-                    call.respond(
-                        HttpStatusCode.OK,
-                        ContactResponse("Ok", "Success")
-                    )
-                },
-                onFailure = { error ->
-                    call.respond(
-                        HttpStatusCode.BadRequest,
-                        ContactResponse("Error", error.message ?: "An error occurred")
-                    )
-                }
-            )
-        } catch (e: Exception) {
-            call.respond(
-                HttpStatusCode.BadRequest,
-                ContactResponse("Error", e.message ?: "Invalid request format")
-            )
+                sendContactMessageUseCase(contact).fold(
+                    onSuccess = {
+                        call.respond(
+                            HttpStatusCode.OK,
+                            ContactResponse("Ok", "Success")
+                        )
+                    },
+                    onFailure = { error ->
+                        call.respond(
+                            HttpStatusCode.BadRequest,
+                            ContactResponse("Error", error.message ?: "An error occurred")
+                        )
+                    }
+                )
+            } catch (e: Exception) {
+                call.respond(
+                    HttpStatusCode.BadRequest,
+                    ContactResponse("Error", e.message ?: "Invalid request format")
+                )
+            }
         }
     }
 }
