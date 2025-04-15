@@ -1,5 +1,6 @@
 package com.engin
 
+import com.engin.config.configureCors
 import io.ktor.server.application.*
 
 fun main(args: Array<String>) {
@@ -9,5 +10,6 @@ fun main(args: Array<String>) {
 fun Application.module() {
     configureSerialization()
     configureFrameworks()
+    configureCors()
     configureRouting()
 }

@@ -24,6 +24,7 @@ dependencies {
     implementation("io.ktor:ktor-server-content-negotiation-jvm")
     implementation("io.ktor:ktor-serialization-kotlinx-json-jvm")
     implementation("io.ktor:ktor-server-netty-jvm")
+    implementation("io.ktor:ktor-server-cors-jvm")
     implementation("ch.qos.logback:logback-classic:1.4.11")
     implementation("com.sun.mail:javax.mail:1.6.2")
     implementation("io.insert-koin:koin-ktor:$koin_version")
