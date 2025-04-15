@@ -1,0 +1,6 @@
+ktor:
+    application:
+        modules:
+            - com.engin.ApplicationKt.module
+    deployment:
+        port: 2020
