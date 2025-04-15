@@ -17,19 +17,6 @@ application {
 
 repositories {
     mavenCentral()
-    maven { url = uri("https://maven.aliyun.com/repository/public") }
-    maven { url = uri("https://maven.aliyun.com/repository/google") }
-    maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
-    maven { url = uri("https://maven.aliyun.com/repository/spring") }
-    maven { url = uri("https://maven.aliyun.com/repository/spring-plugin") }
-    maven { url = uri("https://maven.aliyun.com/repository/grails-core") }
-    maven { url = uri("https://maven.aliyun.com/repository/apache-snapshots") }
-    maven { url = uri("https://repo1.maven.org/maven2/") }
-    maven { url = uri("https://plugins.gradle.org/m2/") }
-    maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
-    maven { url = uri("https://dl.bintray.com/kotlin/kotlin-dev") }
-    maven { url = uri("https://dl.bintray.com/kotlin/ktor") }
-    maven { url = uri("https://dl.bintray.com/kotlin/kotlinx") }
 }
 
 dependencies {
