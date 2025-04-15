@@ -20,7 +20,7 @@ RUN gradle buildFatJar --no-daemon
 
 # Stage 3: Create the Runtime Image
 FROM amazoncorretto:22 AS runtime
-EXPOSE 8080
+EXPOSE 2020
 RUN mkdir /app
 COPY --from=build /home/gradle/src/build/libs/*.jar /app/portfolio-be.jar
 ENTRYPOINT ["java","-jar","/app/portfolio-be.jar"]
